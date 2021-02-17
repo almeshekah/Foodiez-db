@@ -2,10 +2,12 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 app.use(cors());
+const path = require("path");
 const db = require("./db/models");
 app.use(express.json());
 const categoryRoutes = require("./routes/categories");
 app.use("/categories", categoryRoutes);
+app.use("/media", express.static(path.join(__dirname, "media")));
 
 app.listen(8000, () => {
     console.log("The application is running on localhost:8000");

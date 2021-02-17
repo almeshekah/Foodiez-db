@@ -1,5 +1,5 @@
 const express= require("express");
-
+const upload = require("../middleware/multer");
 const router = express.Router();
 const {
     categoryList,
@@ -26,7 +26,7 @@ router.get("/" , categoryList);
 
 router.get("/:categoryId" , categoryDetail);
 
-router.post("/", categoryCreate);
+router.post("/", upload.single("image"),categoryCreate);
 
 
 module.exports=router;

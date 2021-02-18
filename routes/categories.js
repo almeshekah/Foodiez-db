@@ -13,6 +13,7 @@ router.param("categoryId", async (req, res, next, categoryId) => {
   const foundCategory = await fetchCategory(categoryId, next);
   if (foundCategory) {
     req.category = foundCategory;
+    console.log(req.body);
     next();
   } else {
     next({

@@ -1,4 +1,4 @@
-const { Category, Ingredient } = require("../db/models");
+const { Category, Ingredient , RecipeIngredient } = require("../db/models");
 
 exports.fetchCategory = async (categoryId, next) => {
   try {
@@ -42,14 +42,21 @@ exports.categoryCreate = async (req, res, next) => {
 };
 
 exports.ingredientCreate = async (req, res, next) => {
+  console.log(req.body);
   try {
+    
     req.body.categoryId = req.category.id;
+    
     if (req.file) {
       req.body.image = `http://${req.get("host")}/media/${req.file.filename}`;
+      
     }
+    
     const newIngredient = await Ingredient.create(req.body);
     res.status(201).json(newIngredient);
   } catch (error) {
     next(error);
   }
 };
+
+

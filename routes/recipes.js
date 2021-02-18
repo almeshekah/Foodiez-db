@@ -22,7 +22,7 @@ router.param("recipeId", async (req, res, next, recipeId) => {
 });
 
 router.get("/", recipeList);
-
+router.post("/", upload.single("image"), recipeCreate);
 router.get("/:recipeId", recipeDetail);
 
 module.exports = router;

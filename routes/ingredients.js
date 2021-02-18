@@ -25,10 +25,4 @@ router.get("/", ingredientList);
 
 router.get("/:ingredientId", ingredientDetail);
 
-router.post(
-  "/:ingredientId/recipes",
-  upload.single("image"),
-  recipeCreate
-);
-
 module.exports = router;

@@ -30,6 +30,6 @@ app.use((err, req, res, next) => {
     .json({ message: err.message ? err.message : "Internal Server Error " });
 });
 
-//db.sequelize.sync();
-db.sequelize.sync({ alter: true });
-//db.sequelize.sync({force:true});
+db.sequelize.sync();
+// db.sequelize.sync({ alter: true });
+// db.sequelize.sync({ force: true });

@@ -16,13 +16,6 @@ module.exports = (sequelize, DataTypes) => {
       video: {
         type: DataTypes.STRING,
       },
-      description: {
-        type: DataTypes.STRING,
-      },
-      instructions: {
-        type: DataTypes.STRING,
-      },
-      
     },
     { timestamps: false }
   );

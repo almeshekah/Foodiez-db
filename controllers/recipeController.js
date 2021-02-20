@@ -46,7 +46,7 @@ exports.recipeCreate = async (req, res, next) => {
     }
 
     const newRecipe = await Recipe.create(req.body);
-    newRecipe.addIngredients(req.body.ingredients);
+    newRecipe.addIngredients(req.body.ingredients.split(","));
     res.status(201).json(newRecipe);
   } catch (error) {
     next(error);
